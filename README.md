@@ -2,6 +2,12 @@
 
 A flat, minimal, **CSS-only** design system extracted from the Artemis homelab dashboard. No JavaScript, no build step required to use it.
 
+| Dark (default) | Light (`data-theme="light"`) |
+|---|---|
+| ![Dark theme](docs/screenshots/dark.png) | ![Light theme](docs/screenshots/light.png) |
+
+Every widget on one page: [`docs/showcase.html`](docs/showcase.html) (append `?theme=light` for light).
+
 **Principles:** no gradients, shadows or radii (except the status dot) · 1px hairlines for structure · mono for labels/data, sans for UI, serif italic for quotes · hierarchy via text color, not weight · one accent color, for status only.
 
 ## Install
