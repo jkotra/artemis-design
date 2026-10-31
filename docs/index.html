@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>artemis-design</title>
+  <link rel="stylesheet" href="artemis.css">
+  <style>
+    /* docs-only chrome */
+    .doc { max-width: 680px; margin: 0 auto; padding: 4rem 1.25rem; display: flex; flex-direction: column; gap: 3.5rem; }
+    .doc h2 { font-family: var(--font-mono); font-size: var(--text-sm); letter-spacing: var(--tracking-wide); font-weight: 400; color: var(--color-text-muted); text-transform: lowercase; padding-bottom: var(--space-2); border-bottom: 1px solid var(--color-border); margin-bottom: var(--space-4); }
+    .doc p { font-size: var(--text-md); line-height: 1.6; color: var(--color-text-muted); }
+    .demo { padding: var(--space-5) 0; }
+    pre { font-family: var(--font-mono); font-size: var(--text-xs); line-height: 1.6; color: var(--color-text-muted); background: var(--color-surface); border: 1px solid var(--color-border); padding: var(--space-4); white-space: pre-wrap; word-break: break-all; margin-top: var(--space-3); }
+    .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--space-3); }
+    .swatch { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-muted); }
+    .swatch i { display: block; height: 28px; border: 1px solid var(--color-border); margin-bottom: var(--space-1); }
+    .theme-btn { background: none; border: 1px solid var(--color-border); color: var(--color-text-muted); font-family: var(--font-mono); font-size: var(--text-xs); padding: 0.3rem 0.7rem; cursor: pointer; }
+    .theme-btn:hover { color: var(--color-text); }
+  </style>
+</head>
+<body>
+  <div class="doc">
+    <header class="art-header">
+      <span class="art-header__title">artemis-design</span>
+      <button class="theme-btn" onclick="var h=document.documentElement;h.dataset.theme=h.dataset.theme==='dark'?'light':'dark'">toggle theme</button>
+    </header>
+
+    <section>
+      <h2>principles</h2>
+      <p>Flat and minimal. No gradients, shadows or rounded corners (except the status dot). 1px hairlines for structure. Mono for labels and data, sans for UI, serif italic for quotes only. Hierarchy comes from text color (text → muted → dim), not weight. One accent color, used only for status.</p>
+    </section>
+
+    <section>
+      <h2>install</h2>
+      <pre>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jkotra/artemis-design@v0.1.0/dist/artemis.min.css"&gt;</pre>
+      <p style="margin-top:.75rem">Or copy <code>dist/artemis.min.css</code> into your project. Set <code>data-theme="light"</code> on <code>&lt;html&gt;</code> for the light theme.</p>
+    </section>
+
+    <section>
+      <h2>colors</h2>
+      <div class="swatches">
+        <div class="swatch"><i style="background:var(--color-bg)"></i>--color-bg</div>
+        <div class="swatch"><i style="background:var(--color-surface)"></i>--color-surface</div>
+        <div class="swatch"><i style="background:var(--color-border)"></i>--color-border</div>
+        <div class="swatch"><i style="background:var(--color-text)"></i>--color-text</div>
+        <div class="swatch"><i style="background:var(--color-text-muted)"></i>--color-text-muted</div>
+        <div class="swatch"><i style="background:var(--color-text-dim)"></i>--color-text-dim</div>
+        <div class="swatch"><i style="background:var(--color-positive)"></i>--color-positive</div>
+        <div class="swatch"><i style="background:var(--meter-fill)"></i>--meter-fill</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>header + status</h2>
+      <div class="demo">
+        <header class="art-header">
+          <span class="art-header__title">myservice</span>
+          <span class="art-status"><span class="art-status__dot"></span><span>online</span></span>
+        </header>
+        <br>
+        <header class="art-header">
+          <span class="art-header__title">myservice</span>
+          <span class="art-status art-status--positive">
+            <svg class="art-status__icon" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>connected</span>
+          </span>
+        </header>
+      </div>
+<pre>&lt;header class="art-header"&gt;
+  &lt;span class="art-header__title"&gt;myservice&lt;/span&gt;
+  &lt;span class="art-status"&gt;
+    &lt;span class="art-status__dot"&gt;&lt;/span&gt;&lt;span&gt;online&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/header&gt;
+&lt;!-- add art-status--positive for green text; art-status__icon for an inline svg --&gt;</pre>
+    </section>
+
+    <section>
+      <h2>meter</h2>
+      <div class="demo art-meters">
+        <div class="art-meter">
+          <div class="art-meter__head"><span class="art-meter__label">CPU</span><span class="art-meter__value">42%</span></div>
+          <div class="art-meter__track"><div class="art-meter__fill" style="width:42%"></div></div>
+        </div>
+        <div class="art-meter">
+          <div class="art-meter__head"><span class="art-meter__label">RAM</span><span class="art-meter__value">6.2 / 16.0 GB <span class="art-meter__pct">(39%)</span></span></div>
+          <div class="art-meter__track"><div class="art-meter__fill" style="width:39%"></div></div>
+        </div>
+        <div class="art-stats"><span>uptime 12d</span><span>load 0.42</span></div>
+      </div>
+<pre>&lt;div class="art-meter"&gt;
+  &lt;div class="art-meter__head"&gt;
+    &lt;span class="art-meter__label"&gt;CPU&lt;/span&gt;
+    &lt;span class="art-meter__value"&gt;42%&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="art-meter__track"&gt;
+    &lt;div class="art-meter__fill" style="width:42%"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+    </section>
+
+    <section>
+      <h2>links</h2>
+      <div class="demo">
+        <nav class="art-topbar__links" style="font-family:var(--font-mono);font-size:.74rem">
+          <a class="art-link" href="#">git</a><span class="art-sep">·</span>
+          <a class="art-link" href="#">music</a><span class="art-sep">·</span>
+          <a class="art-link" href="#">notebook</a>
+        </nav>
+      </div>
+<pre>&lt;a class="art-link" href="#"&gt;git&lt;/a&gt;&lt;span class="art-sep"&gt;·&lt;/span&gt;...</pre>
+    </section>
+
+    <section>
+      <h2>topbar</h2>
+      <p>Fixed to the top of the viewport (see the live bar on this page). Use with <code>art-page--with-topbar</code> for correct padding.</p>
+<pre>&lt;header class="art-topbar"&gt;
+  &lt;div class="art-topbar__inner"&gt;
+    &lt;span class="art-topbar__title"&gt;Directory&lt;/span&gt;
+    &lt;nav class="art-topbar__links"&gt;
+      &lt;a class="art-link" href="#"&gt;git&lt;/a&gt;&lt;span class="art-sep"&gt;·&lt;/span&gt;
+      &lt;a class="art-link" href="#"&gt;music&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</pre>
+    </section>
+
+    <section>
+      <h2>footer + quote</h2>
+      <div class="demo">
+        <footer class="art-footer">
+          <blockquote class="art-quote">
+            “A golden key opens every door, save that of heaven.”
+            <cite>— George Herbert, <em>Jacula Prudentum</em></cite>
+          </blockquote>
+          <div class="art-note">services accessible only on vpn</div>
+        </footer>
+      </div>
+<pre>&lt;footer class="art-footer"&gt;
+  &lt;blockquote class="art-quote"&gt;“…”&lt;cite&gt;— Author, &lt;em&gt;Work&lt;/em&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+  &lt;div class="art-note"&gt;a small note&lt;/div&gt;
+&lt;/footer&gt;</pre>
+    </section>
+
+    <section>
+      <h2>page layout</h2>
+      <p>Optional: <code>art-page</code> centers content; <code>art-stack</code> is a 440px column with vertical rhythm.</p>
+<pre>&lt;body class="art-page"&gt;
+  &lt;div class="art-stack"&gt; … &lt;/div&gt;
+&lt;/body&gt;</pre>
+    </section>
+  </div>
+
+  <header class="art-topbar">
+    <div class="art-topbar__inner">
+      <span class="art-topbar__title">Directory</span>
+      <nav class="art-topbar__links">
+        <a class="art-link" href="#">git</a><span class="art-sep">·</span>
+        <a class="art-link" href="#">music</a><span class="art-sep">·</span>
+        <a class="art-link" href="#">notebook</a>
+      </nav>
+    </div>
+  </header>
+</body>
+</html>

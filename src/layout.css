@@ -1,0 +1,24 @@
+/* artemis-design — opt-in page layout (centered, narrow column) */
+
+.art-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) 1.25rem var(--space-6);
+}
+
+/* Add .art-page--with-topbar when an .art-topbar is present */
+.art-page--with-topbar { padding-top: calc(var(--topbar-height) + var(--space-6)); }
+
+.art-stack {
+  width: 100%;
+  max-width: var(--width-page);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+}
+
+@media (max-width: 640px) {
+  .art-page--with-topbar { padding-top: 4.75rem; }
+}

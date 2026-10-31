@@ -1,0 +1,88 @@
+/* ==========================================================================
+   artemis-design — tokens
+   Single source of truth. Override any of these in :root to theme.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* Primitives */
+  --gray-950: #0e0e11;
+  --gray-900: #141418;
+  --gray-800: #202026;
+  --gray-750: #23232a;
+  --gray-500: #797985;
+  --gray-600: #4d4d57;
+  --gray-100: #ececf1;
+  --gray-200: #e4e4e7;
+  --green-500: #22c55e;
+
+  /* Semantic colors (dark is the default theme) */
+  --color-bg: var(--gray-950);
+  --color-bg-overlay: rgba(14, 14, 17, 0.94);
+  --color-surface: var(--gray-900);
+  --color-border: var(--gray-750);
+  --color-text: var(--gray-100);
+  --color-text-muted: var(--gray-500);
+  --color-text-dim: var(--gray-600);
+  --color-positive: var(--green-500);
+  --meter-track: var(--gray-800);
+  --meter-fill: var(--gray-200);
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Monaco, Consolas, monospace;
+  --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+
+  --text-2xs: 0.62rem;
+  --text-xs: 0.7rem;
+  --text-sm: 0.75rem;
+  --text-md: 0.82rem;
+  --text-lg: 0.92rem;
+
+  --tracking-tight: 0.02em;
+  --tracking-normal: 0.04em;
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.1em;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 2.75rem;
+  --space-8: 3.5rem;
+
+  /* Shape & motion */
+  --radius-0: 0;
+  --radius-round: 50%;
+  --hairline: 1px;
+  --meter-height: 3px;
+  --dot-size: 5px;
+  --duration-fast: 0.15s;
+  --duration-base: 0.4s;
+  --ease: ease;
+
+  /* Layout */
+  --width-page: 440px;
+  --width-wide: 680px;
+  --topbar-height: 42px;
+  --z-topbar: 100;
+}
+
+/* Light theme: opt in with <html data-theme="light"> */
+[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #fafafa;
+  --color-bg-overlay: rgba(250, 250, 250, 0.94);
+  --color-surface: #f1f1f3;
+  --color-border: #e4e4e8;
+  --color-text: #18181b;
+  --color-text-muted: #6b6b76;
+  --color-text-dim: #a1a1aa;
+  --color-positive: #16a34a;
+  --meter-track: #e4e4e8;
+  --meter-fill: #27272a;
+}

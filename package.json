@@ -1,0 +1,10 @@
+{
+  "name": "artemis-design",
+  "version": "0.1.0",
+  "description": "A flat, minimal, CSS-only design system.",
+  "license": "MIT",
+  "style": "dist/artemis.css",
+  "files": ["dist", "src"],
+  "scripts": { "build": "node scripts/build.mjs" },
+  "repository": "github:jkotra/artemis-design"
+}

@@ -1,0 +1,37 @@
+/* Footer block, quote and note */
+
+.art-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: var(--space-6);
+  border-top: var(--hairline) solid var(--color-border);
+}
+
+.art-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-lg);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.art-quote cite {
+  display: block;
+  margin-top: var(--space-2);
+  font-style: normal;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-dim);
+}
+
+.art-quote cite em { font-style: italic; }
+
+.art-note {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: var(--color-text-dim);
+}
